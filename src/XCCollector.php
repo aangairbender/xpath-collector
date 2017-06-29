@@ -11,7 +11,6 @@
 
 namespace XPathCollector;
 
-use XPathCollector\XCSchema;
 
 /**
  * @author Yevhen Kazmin <jetixranger@ya.ru>
@@ -24,7 +23,7 @@ class XCCollector
 
 	private $searchSource;
 
-	public function __construct(XPathCollector\XCSchema $schema, $searchSource)
+	public function __construct(XCSchema $schema, $searchSource)
 	{
 		$this->schema = $schema;
 		$this->searchSource = $searchSource;
@@ -32,15 +31,15 @@ class XCCollector
 
 	public function getSchema()
 	{
-		return $schema;
+		return $this->schema;
 	}
 
 	public function getSearchSource()
 	{
-		return $searchSource;
+		return $this->searchSource;
 	}
 
-	public function setSchema(XPathCollector\XCSchema $newSchema)
+	public function setSchema(XCSchema $newSchema)
 	{
 		$this->schema = $newSchema;
 	}
@@ -52,10 +51,10 @@ class XCCollector
 
 	public function execute()
 	{
-		$doc = new DOMDocument;
-		$doc->load($searchSource);
-		$rules = $schema->getRules();
-		$xpath = new DOMXPath;
+		$doc = new \DOMDocument;
+		$doc->loadHTML($this->searchSource);
+		$rules = $this->schema->getRules();
+		$xpath = new \DOMXPath($doc);
 		$result = array();
 		foreach ($rules as $fieldName => $fieldXpath)
 		{

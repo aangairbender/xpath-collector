@@ -27,12 +27,12 @@ class XCSchema
 
 	public function getRules()
 	{
-		return $rules;
+		return $this->rules;
 	}
 
 	public function addRules($newRules = array())
 	{
-		$this->rules = array_merge($rules, $newRules);
+		$this->rules = array_merge($this->rules, $newRules);
 	}
 
 
