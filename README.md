@@ -25,6 +25,6 @@ var_dump($collector->execute());
 Project is on developing stage yet. Help is welcome.
 
 Future plans:
-* Add support loading searchContent from file (or url)
+* Support loading searchContent from file (or url)
 * Write docs and pretty comments
 * Create website with **XCPacks** - predefined rule sets for different websites(urls), no need to describe rules that were described by someone else before, just use what you really need.
